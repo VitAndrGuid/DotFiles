@@ -7,6 +7,9 @@ exec_always feh --bg-scale /home/vitor/Pictures/doNotRemove/lockscreen.jpg
 # Transparencia
 exec_always --no-startup-id compton
 
+# Transparencia
+exec firefox
+
 # Nvidia
 exec_always nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
 

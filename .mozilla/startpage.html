@@ -1,0 +1,123 @@
+<!--
+Minimal Startpage for Chrome/Firefox
+-->
+
+
+<!doctype html>
+<title>Home</title>
+<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+<body>
+	<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+	<script>			
+		window.onkeyup = keyup;
+		var inputTextValue;
+		function keyup(e) {
+			inputTextValue = e.target.value;
+			if (e.keyCode == 13) {
+				window.location = "http://www.google.com/search?q=" + inputTextValue;
+			}
+		}
+	</script>
+	
+	<div>
+		<input id="search_bar", style="search", onKeydown="Javascript: if (event.keyCode == 13) search();", autofocus>
+	</div>
+	
+	<div id="icons", style="font-size:40px">
+		<i id="telegram", class="fa fa-telegram", onclick="Javascript: window.location = 'https://web.telegram.org/#/im'"></i>	
+		<i id="chan", class="fa fa-wheelchair-alt", onclick="Javascript: window.location = 'http://www.4chan.org/'"></i>
+		<i id="zapzap", class="fa fa-whatsapp", onclick="Javascript: window.location = 'https://web.whatsapp.com/'"></i>	
+		<i id="youtube", class="fa fa-youtube-play", onclick="Javascript: window.location = 'https://www.youtube.com/'"></i>
+		<i id="email", class="fa fa-envelope-o", onclick="Javascript: window.location = 'https://outlook.live.com/mail/inbox'"></i>		
+		<i id="github", class="fa fa-github-alt", onclick="Javascript: window.location = 'https://github.com/VitAndrGuid'"></i>
+		
+	</div>
+</body>
+
+<style type = "text/css">
+	
+	:root {
+		--main-color: #212121; /* cor background */
+		--green: #408c4a;
+		--orange: #cb4b16;
+		--red: #dc322f;
+		--cyan: #2aa198;
+		--blue: #268bd2;
+		--magenta: #d33682;
+		--violet: #6c71c4;
+		--yellow: #b58900;
+		--foreground-light: #93a1a1;
+		--white: #ffffff;
+	}
+	
+	
+	@keyframes rise {
+		0% {opacity:0;}
+		100% {opacity:1;}
+	}
+	
+	@keyframes fadein {
+		from {opacity:0.3;}
+		to {opacity:1;}
+	}
+	
+	body {
+		background-color: var(--main-color);
+		text-align: center;
+		margin: 0;
+		position: relative;
+ 		top: 400px;
+		font-size: 20px;
+	}
+	
+	input {
+		animation-name: rise;
+		animation-duration: 0.5s;
+		animation-iteration: 1;
+		
+		font-family: 'NovaMono', sans-serif;
+		text-align: center;
+		color: #93a1a1;
+		background-color: #212121; /* Cor searchbar */
+		border: 2px solid #5e5e5e; /* Cor borda */
+		border-radius: 3px; 
+		width: 30%;
+		height: 20px;
+		font-size: 20px;
+		padding : 8px;
+		position: relative;
+		transition: 0.5s ease;
+	}
+		
+	input:focus {
+		box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.2);
+		border: 2px solid #888888;
+	}
+		
+	input:hover {
+		box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.2);
+		border: 2px solid #888888;
+	}
+	
+	#icons {
+		position: center;
+		font-family: 'NovaMono', sans-serif;
+		text-align: center;
+		color: #93a1a1;
+		font-size: 12px;
+		padding: 30px;
+		background: #212121; /* cor container icones */
+	}
+	
+	#zapzap, #youtube, #github, #chan, #email, #telegram{
+		background-color: #212121; /* cor fundo icones */
+		color: var(--foreground-light);
+		transition: 0.5s ease;
+		padding: 28px;	
+	}
+	
+	#zapzap:hover, #youtube:hover, #github:hover, #chan:hover, #email:hover, #telegram:hover {
+		color: var(--green);
+		transition: 0.2s ease;
+	}
+
