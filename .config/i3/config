@@ -19,9 +19,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Monitores
 exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off
 
-# Albert
-#exec_always albert
-
 #======================================= GLOBAL SETTINGS =======================================
 
 # Mod
@@ -183,7 +180,4 @@ for_window [class="loginApp.Launcher"] border pixel 0
 # Float padrao
 for_window [class="Pavucontrol"] floating enable
 
-
-
 #===============================================================================================
-
