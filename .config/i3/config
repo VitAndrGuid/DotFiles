@@ -1,0 +1,189 @@
+
+#======================================= STARTERS ==============================================
+
+# Wallpaper
+exec_always feh --bg-scale /home/vitor/Pictures/doNotRemove/lockscreen.jpg
+
+# Transparencia
+exec_always --no-startup-id compton
+
+# Nvidia
+exec_always nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
+
+# No sleep
+exec_always sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# Polybar starter
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Monitores
+exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off
+
+# Albert
+#exec_always albert
+
+#======================================= GLOBAL SETTINGS =======================================
+
+# Mod
+set $mod Mod4
+
+# Borda
+for_window [class="^.*"] border pixel 3
+for_window [class="albert"] border pixel 0
+
+# Gaps
+gaps inner 15
+gaps outer 0
+smart_gaps on
+smart_borders on
+
+# Fonte
+font pango:monospace 8
+
+# Mouse drag (Mouse+$mod) 
+floating_modifier $mod
+
+#======================================= WORKSPACES ============================================
+
+set $ws1 "1" 
+set $ws2 "2" 
+set $ws3 "3" 
+set $ws4 "4" 
+set $ws5 "5" 
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# Alterar para ws
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# Mover container em foco para ws
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+#======================================= KEYBINDS ==============================================
+
+# Mudar foco
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Mover janela em foco
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Resize
+bindsym $mod+Ctrl+Right resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Left resize grow width 10 px or 10 ppt
+
+# Split horizontal
+bindsym $mod+h split h
+
+# Split vertical
+bindsym $mod+v split v
+
+# Ligar modo fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Mudar layout container (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+ 
+# Ligar floating
+bindsym $mod+Shift+space floating toggle
+
+# Alterar foco entre tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focar container pai
+bindsym $mod+a focus parent
+
+# Recarregar config
+bindsym $mod+Shift+c reload
+
+# Restart i3
+bindsym $mod+Shift+r restart
+
+# Sair do i3
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'logout ?' -B 'Sim' 'i3-msg exit'"
+
+# Desliga tela laptop
+bindsym $mod+Shift+m exec xrandr --output eDP-1-1 --off --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal -r 75
+
+# Liga tela laptop
+bindsym $mod+Shift+l exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off 
+
+# Terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Launcher de programas 
+bindsym $mod+d exec /home/vitor/.config/rofiPer/xd.sh
+ 
+# Trava
+bindsym $mod+Shift+x exec i3lock-fancy
+
+# Screenshot
+bindsym $mod+p exec scrot -b -d 0 '%d-%m-%Y_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshots'
+
+# Intelij
+bindsym $mod+Shift+i exec intellij-idea-community
+
+#======================================= COLORS ================================================
+
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           #bdfcab            $text-color          #002200
+client.unfocused        $inactive-bg-color  #5e5e5e            $inactive-text-color #002200
+client.focused_inactive $inactive-bg-color  #5e5e5e            $inactive-text-color #002200
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #002200
+
+#======================================= WINDOWS ===============================================
+
+# Ws padrao
+assign [class="Firefox"] $ws2
+assign [class="jetbrains-idea-ce"] $ws3
+for_window [class="Spotify"] move to workspace $ws4
+assign [class="Rhythmbox"] $ws4
+assign [class="Steam"] $ws5
+assign [class="Wine"] $ws6
+for_window [class="loginApp.Launcher"] floating enable
+for_window [class="loginApp.Launcher"] border pixel 0
+
+# Float padrao
+for_window [class="Pavucontrol"] floating enable
+
+
+
+#===============================================================================================
+

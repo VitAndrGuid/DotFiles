@@ -1,0 +1,25 @@
+rename home
+sudo rm kms1.png
+rename kms1
+rename kms1.png
+shell sudo rm kms1.png
+shell
+search config
+search .config
+shell cd .config/
+man
+help
+open_with 
+open_with jdk8
+cd root
+cd $HOME
+cd home
+cd  .config/
+cd /.config/
+find .config
+cd .config
+find .Xre
+cd .config/
+find .Xresources
+
+cd 
