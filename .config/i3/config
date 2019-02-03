@@ -142,7 +142,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Launcher de programas 
-bindsym $mod+d exec /home/vitor/.config/rofiPer/xd.sh
+bindsym $mod+d exec /home/vitor/CustomScripts/launchRofi.sh
  
 # Trava
 bindsym $mod+Shift+x exec i3lock-fancy
