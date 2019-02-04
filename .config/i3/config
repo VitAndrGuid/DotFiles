@@ -7,7 +7,7 @@ exec_always feh --bg-scale /home/vitor/Pictures/doNotRemove/lockscreen.jpg
 # Transparencia
 exec_always --no-startup-id compton
 
-# Transparencia
+# Browser
 exec firefox
 
 # Nvidia
@@ -29,7 +29,6 @@ set $mod Mod4
 
 # Borda
 for_window [class="^.*"] border pixel 3
-for_window [class="albert"] border pixel 0
 
 # Gaps
 gaps inner 15
@@ -107,9 +106,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Mudar layout container (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
  
 # Ligar floating
 bindsym $mod+Shift+space floating toggle
@@ -141,14 +140,17 @@ bindsym $mod+Return exec i3-sensible-terminal
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Launcher de programas 
+# Rofi drun
 bindsym $mod+d exec /home/vitor/CustomScripts/launchRofi.sh
  
+# Rofi run
+bindsym $mod+Shift+d exec /home/vitor/CustomScripts/launchRofiRun.sh
+
 # Trava
 bindsym $mod+Shift+x exec i3lock-fancy
 
 # Screenshot
-bindsym $mod+p exec scrot -b -d 0 '%d-%m-%Y_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshots'
+bindsym $mod+p exec scrot -b -q 80 -d 0 '%d-%m-%Y_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshots'
 
 # Intelij
 bindsym $mod+Shift+i exec intellij-idea-community

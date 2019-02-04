@@ -80,7 +80,7 @@ font-4 = Font Awesome 5 Brands:pixelsize=8;1
 
 modules-left = bspwm i3 spotify
 modules-center = 
-modules-right = time date wlan eth battery powermenu
+modules-right = time date battery powermenu
 
 ;modules-left = bspwm i3 spotify
 ;modules-center = date 
@@ -111,22 +111,35 @@ menu-2-1-exec = menu-open-0
 
 ;============================================================
 
-[module/date]
+[module/time]
 type = internal/date
 interval = 1
-
-date = "%d-%m-%y"
-date-alt = "%d-%m-%Y"
 
 time = "%H:%M"
 time-alt = "%H:%M:%S"
 
 format-prefix = 
 format-background = 
+format-prefix-foreground = 
+format-underline = #dddcc3
+
+label = "  %time%"
+
+;============================================================
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%d-%m"
+date-alt = "%d-%m-%y"
+
+format-prefix = 
+format-background =
 format-prefix-foreground = #ff0000
 format-underline = #dddcc3
 
-label = "%time% • %date%"
+label = "  %date%"
 
 ;============================================================
 
@@ -151,12 +164,13 @@ format-spacing = 2
 format-underline = #474747
 format-background = #474747
 
-label-open = " "
+label-open = "    "
 label-open-foreground = #ffffff
+;label-open-underline = #dddcc3
+
 label-close = "   cancel"
 label-close-foreground = #00ff00
-
-;label-close-underline = #ff0000
+;label-close-underline = #dddcc3
 
 label-separator = " • "
 label-separator-foreground = #ffffff
@@ -381,13 +395,13 @@ battery = BAT1
 adapter = ACAD
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+format-charging =   <animation-charging> <label-charging>
 format-charging-underline = #dddcc3
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging =   <animation-discharging> <label-discharging>
 format-discharging-underline = #dddcc3
 
-format-full-prefix = 
+format-full-prefix = "  "
 format-full-prefix-foreground = #ffffff
 format-full-underline = #dddcc3
 

@@ -9,7 +9,6 @@ search .config
 shell cd .config/
 man
 help
-open_with 
 open_with jdk8
 cd root
 cd $HOME
@@ -21,5 +20,9 @@ cd .config
 find .Xre
 cd .config/
 find .Xresources
-
 cd 
+
+shell rm /home/vitor/Documents/.comandos.txt.swp
+shell rn comandos.txt test.txt
+shell 
+open_with 
