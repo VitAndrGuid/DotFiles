@@ -163,8 +163,8 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           #bdfcab            $text-color          #002200
-client.unfocused        $inactive-bg-color  #5e5e5e            $inactive-text-color #002200
+client.focused          $bg-color           #77a56a            $text-color          #002200
+client.unfocused        $inactive-bg-color  #1c1c1c            $inactive-text-color #002200
 client.focused_inactive $inactive-bg-color  #5e5e5e            $inactive-text-color #002200
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #002200
 

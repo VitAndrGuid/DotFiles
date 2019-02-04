@@ -26,7 +26,7 @@ margin-bottom = 5
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #000000
+background = #191919
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #ffffff
@@ -60,7 +60,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 2
 line-color = #f00
 
 border-size = 0
@@ -122,9 +122,9 @@ time = "%H:%M"
 time-alt = "%H:%M:%S"
 
 format-prefix = 
-format-background = #000000
+format-background = 
 format-prefix-foreground = #ff0000
-format-underline = #bdfcab
+format-underline = #dddcc3
 
 label = "%time% • %date%"
 
@@ -136,7 +136,7 @@ interval = 1
 format-prefix =
 format = <label>
 exec = python /home/vitor/polybar/spotify_status.py -p ' , '
-format-underline = #bdfcab
+format-underline = #dddcc3
 
 ;============================================================
 
@@ -258,16 +258,18 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = #bdfcab
-label-focused-underline = #bdfcab
+label-focused-background = #5e5e5e
+label-focused-underline = #dddcc3
 label-focused-padding = ${module/bspwm.label-focused-padding}
-label-focused-foreground = #000000
+label-focused-foreground = #ffffff
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 label-unfocused-background = #
-label-unfocused-underline = #bdfcab
+label-unfocused-underline = #dddcc3
+label-unfocused-foreground = #adadad
+
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -316,7 +318,7 @@ type = internal/cpu
 interval = 2
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #bdfcab
+format-underline = #dddcc3
 label = CPU %percentage:1%%
 
 ;============================================================
@@ -326,7 +328,7 @@ type = internal/memory
 interval = 1
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #bdfcab
+format-underline = #dddcc3
 label = MEM %percentage_used%%
 
 ;============================================================
@@ -337,7 +339,7 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <label-connected><ramp-signal>
-format-connected-underline = #bdfcab
+format-connected-underline = #dddcc3
 label-connected = %essid%
 
 format-disconnected = <label-disconnected>
@@ -359,7 +361,7 @@ type = internal/network
 interface = enp3s0f1
 interval = 3.0
 
-format-connected-underline = #bdfcab
+format-connected-underline = #dddcc3
 format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -380,14 +382,14 @@ adapter = ACAD
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #bdfcab
+format-charging-underline = #dddcc3
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = #bdfcab
+format-discharging-underline = #dddcc3
 
 format-full-prefix = 
 format-full-prefix-foreground = #ffffff
-format-full-underline = #bdfcab
+format-full-underline = #dddcc3
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
