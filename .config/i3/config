@@ -142,9 +142,6 @@ bindsym $mod+Shift+q kill
 
 # Rofi drun
 bindsym $mod+d exec /home/vitor/CustomScripts/launchRofi.sh
- 
-# Rofi run
-bindsym $mod+Shift+d exec /home/vitor/CustomScripts/launchRofiRun.sh
 
 # Trava
 bindsym $mod+Shift+x exec i3lock-fancy
