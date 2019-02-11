@@ -126,7 +126,25 @@ format-background =
 format-prefix-foreground = 
 format-underline = #dddcc3
 
-label = "  %time%    %date%"
+label = "  %time%"
+
+[module/date]
+type = internal/date
+interval = 1
+
+time = "%H:%M"
+time-alt = "%H:%M:%S"
+
+date = "%d-%m"
+date-alt = "%d-%m-%y"
+
+format-prefix = 
+format-background = 
+format-prefix-foreground = 
+format-underline = #dddcc3
+
+label = "  %date%"
+
 
 ;============================================================
 
