@@ -1,4 +1,4 @@
-Dotfiles from my desktop config, any expert ricer might experience nausea, proceed with caution.
+Dotfiles from my desktop config.
 
 Theme: Nordic (https://github.com/EliverLara/Nordic)
 
