@@ -10,6 +10,10 @@ exec_always --no-startup-id compton
 # Browser
 exec firefox
 
+# Fontes
+exec_always xset +fp ~/.fonts/misc/
+
+
 # Nvidia
 exec_always nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
 
@@ -85,22 +89,25 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Mover janela em foco
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left 15px
+bindsym $mod+Shift+Down move down 15px
+bindsym $mod+Shift+Up move up 15px
+bindsym $mod+Shift+Right move right 15px
 
 # Resize
-bindsym $mod+Ctrl+Right resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+Up resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Down resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Left resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+Right resize shrink width 15 px or 15 ppt
+bindsym $mod+Ctrl+Up resize grow height 15 px or 15 ppt
+bindsym $mod+Ctrl+Down resize shrink height 15 px or 15 ppt
+bindsym $mod+Ctrl+Left resize grow width 15 px or 15 ppt
 
 # Split horizontal
 bindsym $mod+h split h
 
 # Split vertical
 bindsym $mod+v split v
+
+# Memecraft
+bindsym $mod+Shift+k exec java -jar ~/Games/Memecraft.jar
 
 # Ligar modo fullscreen
 bindsym $mod+f fullscreen toggle
@@ -135,7 +142,7 @@ bindsym $mod+Shift+m exec xrandr --output eDP-1-1 --off --output HDMI-0 --primar
 bindsym $mod+Shift+l exec xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off 
 
 # Terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -162,7 +169,7 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           #77a56a            $text-color          #002200
+client.focused          $bg-color           #9e7100            $text-color          #002200
 client.unfocused        $inactive-bg-color  #1c1c1c            $inactive-text-color #002200
 client.focused_inactive $inactive-bg-color  #5e5e5e            $inactive-text-color #002200
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #002200
