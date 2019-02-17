@@ -2,7 +2,7 @@
 #======================================= STARTERS ==============================================
 
 # Wallpaper
-exec_always feh --bg-scale /home/vitor/Pictures/doNotRemove/lockscreen.jpg
+exec_always --no-startup-id feh --bg-center ~/Pictures/doNotRemove/pape2.jpg 
 
 # Transparencia
 exec_always --no-startup-id compton
