@@ -60,7 +60,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3 
+line-size = 3
 line-color = #f00
 
 border-size = 0
@@ -79,8 +79,8 @@ font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8;1
 font-4 = Font Awesome 5 Brands:pixelsize=8;1
 
 modules-left = bspwm i3 spotify
-modules-center = 
-modules-right = time date battery powermenu
+modules-center = time
+modules-right =  eth wlan battery powermenu
 
 ;modules-left = bspwm i3 spotify
 ;modules-center = date 
@@ -104,124 +104,10 @@ tray-background = #3b4252
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 menu-2-1-exec = menu-open-0
-
-;============================================================
-
-[module/time]
-type = internal/date
-interval = 1
-
-time = "%H:%M"
-time-alt = "%H:%M:%S"
-
-date = "%d-%m"
-date-alt = "%d-%m-%y"
-
-format-prefix = 
-format-background = 
-format-prefix-foreground = 
-format-underline = #4c5460
-
-label = "  %time%"
-
-[module/date]
-type = internal/date
-interval = 1
-
-time = "%H:%M"
-time-alt = "%H:%M:%S"
-
-date = "%d-%m"
-date-alt = "%d-%m-%y"
-
-format-prefix = 
-format-background = 
-format-prefix-foreground = 
-format-underline = #4c5460
-
-label = "  %date%"
-
-
-;============================================================
-
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix =
-format = <label>
-exec = python /home/vitor/polybar/spotify_status.py -p ' , '
-format-underline = #4c5460
-
-;============================================================
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-label-active = %D%
-;label-open-underline = #ff0000
-
-format-spacing = 2
-format-underline = #4c5460
-format-background = #4c5460
-
-label-open = "    "
-label-open-foreground = #ffffff
-;label-open-underline = #4c5460
-
-label-close = "   cancel"
-label-close-foreground = #00ff00
-;label-close-underline = #4c5460
-
-label-separator = " • "
-label-separator-foreground = #ffffff
-
-menu-0-0 = lock
-menu-0-0-exec = menu-open-1
-
-menu-0-1 = logout
-menu-0-1-exec = menu-open-2
-
-menu-0-2 = reboot
-menu-0-2-exec = menu-open-3
-
-menu-0-3 = "power off   "
-menu-0-3-exec = menu-open-4
-
-menu-1-0 = "confirm lock   "
-menu-1-0-exec = i3lock-fancy  
-
-menu-2-0 = "confirm logout   "
-menu-2-0-exec = i3-msg exit, mode "default"
-
-menu-3-0 = "confirm reboot   "
-menu-3-0-exec = reboot
-
-menu-4-0 = "confirm poweroff   "
-menu-4-0-exec = poweroff
-
-
-;============================================================
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-;============================================================
-
-[module/filesystem]
-type = internal/fs
-interval = 1
-
-mount-0 = /
-
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
 
 ;============================================================
 
@@ -306,6 +192,100 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ;============================================================
 
+[module/time]
+type = internal/date
+interval = 1
+
+time = "%H:%M"
+time-alt = "%H:%M:%S"
+
+date = "%d-%m"
+date-alt = "%A %B %d - %Y"
+
+format-prefix = 
+format-background = 
+format-prefix-foreground = 
+format-underline = #4c5460
+
+label = "  %time% • %date%"
+
+;============================================================
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix =
+format = <label>
+exec = python /home/vitor/polybar/spotify_status.py -p ' , '
+format-underline = #4c5460
+
+;============================================================
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+label-active = %D%
+;label-open-underline = #ff0000
+
+format-spacing = 2
+format-underline = #4c5460
+format-background = #4c5460
+
+label-open = "    "
+label-open-foreground = #ffffff
+;label-open-underline = #4c5460
+
+label-close = "   cancel"
+label-close-foreground = #00ff00
+;label-close-underline = #4c5460
+
+label-separator = " • "
+label-separator-foreground = #ffffff
+
+menu-0-0 = lock
+menu-0-0-exec = menu-open-1
+
+menu-0-1 = logout
+menu-0-1-exec = menu-open-2
+
+menu-0-2 = reboot
+menu-0-2-exec = menu-open-3
+
+menu-0-3 = "power off   "
+menu-0-3-exec = menu-open-4
+
+menu-1-0 = "confirm lock   "
+menu-1-0-exec = i3lock-fancy  
+
+menu-2-0 = "confirm logout   "
+menu-2-0-exec = i3-msg exit, mode "default"
+
+menu-3-0 = "confirm reboot   "
+menu-3-0-exec = reboot
+
+menu-4-0 = "confirm poweroff   "
+menu-4-0-exec = poweroff
+
+
+;============================================================
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+;============================================================
+
+[module/filesystem]
+type = internal/fs
+interval = 1
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -357,20 +337,21 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected = <label-connected><ramp-signal>
+format-connected = <label-connected>
 format-connected-underline = #4c5460
-label-connected = %essid%
+label-connected =   %essid%
 
 format-disconnected = <label-disconnected>
-format-disconnected-underline = #ee0000
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-underline = #4c5460
+label-disconnected =   WIFI OFF
+;label-disconnected =   %ifname% OFF
+label-disconnected-foreground = #ffffff
 
-ramp-signal-0 = 0
-ramp-signal-1 = 1
-ramp-signal-2 = 2
-ramp-signal-3 = 3
-ramp-signal-4 = 4
+ramp-signal-0 =
+ramp-signal-1 =
+ramp-signal-2 =
+ramp-signal-3 =
+ramp-signal-4 =
 ramp-signal-foreground = #ffffff
 
 ;============================================================
@@ -383,13 +364,14 @@ interval = 3.0
 format-connected-underline = #4c5460
 format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected =   %local_ip%
 
 ;format-disconnected =
 format-disconnected = <label-disconnected>
-format-disconnected-underline = #ff0000
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-underline = #4c5460
+label-disconnected =  ETH OFF
+;label-disconnected =   %ifname% OFF
+label-disconnected-foreground = #ffffff
 
 ;============================================================
 
